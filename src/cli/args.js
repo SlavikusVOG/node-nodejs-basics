@@ -10,8 +10,8 @@ const parseArgs = () => {
             result += ` ${arg},`;
         }
     });
-    result[result.length - 1] = '.';
-    console.log(result)
+    result = `${result.slice(0, -1)}.`;
+    console.log(result);
 };
 
 parseArgs();
