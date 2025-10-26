@@ -2,15 +2,22 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 const fresh = "./files/fresh.txt";
+const str = "I am fresh and young";
 
 const create = async () => {
   // Write your code here
   try {
-    await fs.access(fresh);
-    throw Error("FS operation failed");
+    const stat = await fs.stat(fresh);
+    if (stat.isFile()) {
+      throw Error("FS operation failed");
+    }
+    else {
+      await fs.rmdir(fresh);
+      await fs.writeFile(fresh, str);
+    }
   }
   catch(error) {
-    if (error.syscall === "access") {
+    if (error.syscall === "stat") {
       try {
         await fs.access(path.dirname(fresh));
       }
@@ -18,8 +25,7 @@ const create = async () => {
         fs.mkdir(path.dirname(fresh));
       }
       finally{
-        const str = "I am fresh and young";
-        await fs.writeFile("files/fresh.txt", str);
+        await fs.writeFile(fresh, str);
       }
     }
     else {
