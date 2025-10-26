@@ -1,5 +1,4 @@
 import fs from "node:fs/promises";
-import path from "path";
 
 const folder = "./files";
 
