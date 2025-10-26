@@ -6,15 +6,18 @@ const fileName = "fileToRemove.txt";
 const remove = async () => {
   // Write your code here
   try {
-    await fs.access(fileName);
-    await fs.rm(fileName);
+    const fileStat = await fs.stat(fileName);
+    if (fileStat.isFile()) {
+      await fs.rm(fileName);
+    }
+    throw new Error(errorMessage);
   }
   catch(error) {
-    if (error.syscall === "access") {
+    if (error.syscall === "stat") {
       throw new Error(errorMessage);
     }
     else {
-      console.error(error);
+      throw error
     }
   }
 };
