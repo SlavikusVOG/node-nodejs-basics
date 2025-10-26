@@ -7,12 +7,15 @@ const properFilename = "properFilename.md";
 const rename = async () => {
   // Write your code here
   try {
-    await fs.access(fileName);
-    await fs.access(properFilename);
+    const fileNameStat = await fs.stat(fileName);
+    if (fileNameStat.isDirectory()) {
+      throw new Error(errorMessage);
+    }
+    await fs.stat(properFilename);
     throw new Error(errorMessage);
   }
   catch(error) {
-    if (error.syscall === "access") {
+    if (error.syscall === "stat") {
       try {
         await fs.access(fileName);
       }
