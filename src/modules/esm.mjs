@@ -3,12 +3,13 @@ import { release, version } from 'node:os';
 import { createServer as createServerHttp } from 'node:http';
 
 import ('./files/c.cjs');
-import * as a from './files/a.json' with { type: 'json' };
 import * as b from './files/b.json' with { type: 'json' };
 
 const random = Math.random();
 
-const unknownObject = random > 0.5 ? a : b;
+const unknownObject = random > 0.5 /* ? a : b; */
+  ? import ('./files/a.json', { with: { type: 'json' }})
+  : import ('./files/b.json', { with: { type: 'json' }});
 
 console.log(`Release ${release()}`);
 console.log(`Version ${version()}`);
