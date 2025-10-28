@@ -3,7 +3,6 @@ import { release, version } from 'node:os';
 import { createServer as createServerHttp } from 'node:http';
 
 import ('./files/c.cjs');
-import * as b from './files/b.json' with { type: 'json' };
 
 const random = Math.random();
 
