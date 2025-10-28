@@ -2,7 +2,7 @@ import stream from "node:stream/promises";
 import fs from "node:fs";
 import zlib from "node:zlib";
 
-const filePath = "./src/zip/files/decompressed.txt";
+const filePath = "./src/zip/files/fileToCompress.txt";
 const archivePath = "./src/zip/files/archive.gz";
 
 const decompress = async () => {
