@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 
 const errorMessage = "FS operation failed";
-const filePath = "fileToRead.txt";
+const filePath = "./src/fs/files/fileToRead.txt";
 
 const read = async () => {
   // Write your code here

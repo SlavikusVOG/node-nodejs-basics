@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
-const fresh = "./files/fresh.txt";
+const fresh = "./src/fs/files/fresh.txt";
 const str = "I am fresh and young";
 
 const create = async () => {

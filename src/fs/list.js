@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 
 const errorMessage = "FS operation failed";
-const directory = "files";
+const directory = "./src/fs/files";
 
 const list = async () => {
   // Write your code here

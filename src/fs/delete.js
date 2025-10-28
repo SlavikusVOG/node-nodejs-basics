@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 
 const errorMessage = "FS operation failed";
-const fileName = "fileToRemove.txt";
+const fileName = "./src/fs/files/fileToRemove.txt";
 
 const remove = async () => {
   // Write your code here

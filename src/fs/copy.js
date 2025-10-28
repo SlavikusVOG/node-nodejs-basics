@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 
-const folder = "./files";
+const folder = "./src/fs/files";
 
 const copy = async () => {
   // Write your code here

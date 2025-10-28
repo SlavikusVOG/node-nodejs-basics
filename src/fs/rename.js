@@ -1,8 +1,8 @@
 import fs from "node:fs/promises";
 
 const errorMessage = "FS operation failed";
-const fileName = "wrongFilename.txt";
-const properFilename = "properFilename.md";
+const fileName = "./src/fs/files/wrongFilename.txt";
+const properFilename = "./src/fs/files/properFilename.md";
 
 const rename = async () => {
   // Write your code here
