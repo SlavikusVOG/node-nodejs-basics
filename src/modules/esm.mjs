@@ -2,7 +2,7 @@ import path from 'node:path';
 import { release, version } from 'node:os';
 import { createServer as createServerHttp } from 'node:http';
 
-import ('./files/c.cjs');
+import './files/c.cjs';
 
 const random = Math.random();
 
