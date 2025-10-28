@@ -6,9 +6,9 @@ import './files/c.cjs';
 
 const random = Math.random();
 
-const unknownObject = random > 0.5 /* ? a : b; */
-  ? import ('./files/a.json', { with: { type: 'json' }})
-  : import ('./files/b.json', { with: { type: 'json' }});
+const unknownObject = (random > 0.5 /* ? a : b; */
+  ? await import ('./files/a.json', { with: { type: 'json' }})
+  : await import('./files/b.json', { with: { type: 'json' }})).default;
 
 console.log(`Release ${release()}`);
 console.log(`Version ${version()}`);
