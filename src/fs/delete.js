@@ -10,7 +10,9 @@ const remove = async () => {
     if (fileStat.isFile()) {
       await fs.rm(fileName);
     }
-    throw new Error(errorMessage);
+    else {
+      throw new Error(errorMessage);
+    }
   }
   catch(error) {
     if (error.syscall === "stat") {
